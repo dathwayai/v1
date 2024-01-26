@@ -14,12 +14,12 @@ SECRET_KEY = 'django-insecure-c0!7(mh)mr0-@2%7a##or^#%fc59av%_+l1a5298&e8g22lv=i
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #For Developement
-DEBUG = True
+#DEBUG = True
 
 #For Production
-#DEBUG = False
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -116,16 +116,16 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'dathway_app/static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'dathway_proj/staticfiles')
 
 #For Production
-#STATIC_ROOT = 'dathway_app/static'
+STATIC_ROOT = 'dathway_app/static'
 
 
 MEDIA_URL = '/media/'
 
 #For Development
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #For Production
-#MEDIA_ROOT = 'dathway-v1/media'
+MEDIA_ROOT = 'v1/media'
 
 
 # Default primary key field type
