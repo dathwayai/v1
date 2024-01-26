@@ -1,0 +1,1022 @@
+:root[data-theme="dark"] { 
+    --main-bg: 	hsl(0, 0%, 6%);
+    --button-bg-color:  #fff;
+    --button-text-color:  #358FE6;
+    --link-color: #358FE6;
+    --text-color: #fff;
+    --icon-color: #358FE6;
+    --subtitle-text-color: hsl(226.15, 16.05%, 68.24%);
+    --border-color: hsl(228, 9%, 23%);
+    --alternate-text-color: hsl(228, 18.52%, 15.88%);
+    --container-color: #18181A;
+    --secondary-container-color: #0060D1;
+    --footer-color: #001429;
+    --hero-bg: url("{% static 'images/dark-bg.png' %}");
+    --font-color: #fff;
+    --border-type: solid;
+    --box-shadow: none;
+    --img-theme: url("{% static 'images/how-dath-works-3.png' %}");
+}
+
+:root[data-theme="light"] { 
+    --main-bg: #fff;
+    --button-bg-color:  #358FE6;
+    --button-text-color:  #fff;
+    --link-color: #358FE6;
+    --text-color:#fff;
+    --icon-color: #358FE6;
+    --subtitle-text-color: hsl(226.15, 16.05%, 68.24%);
+    --border-color:hsl(224, 49%, 92%);
+    --alternate-text-color: hsl(228, 18.52%, 15.88%);
+    --container-color: #F7F7F7;
+    --secondary-container-color: #0060D1;
+    --footer-color: #001429;
+    --hero-bg: url("{% static 'images/light-bg.png' %}");
+    --font-color: black;
+    --border-type: none;
+    --box-shadow: 0 0 20px rgba(225, 223, 223, 0.2);
+    --img-theme: url("{% static 'images/how-dath-works-3-light.png' %}");
+
+}
+
+/* ================================================= */
+/* General styles */
+/* ================================================= */
+html {
+	
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+body {
+	font-family: 'Figtree', sans-serif;
+    margin: 0;
+    background: var(--main-bg);
+    overflow: hidden;
+}
+
+
+button {
+	padding: 10px 15px;
+	background-color: var(--button-bg-color);
+	color: var(--button-text-color);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+    border: 1px solid var(--button-color);
+    border-radius: 20px;
+}
+
+a {
+	text-decoration: none;
+    color: var(--text-color);
+}
+
+
+/* ================================================= */
+/* Header styles */
+/* ================================================= */
+.all__hero__section {
+    background-image: var(--hero-bg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 80vh;
+    
+}
+.header {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img{
+    width: 150px;
+}
+
+.header__center {
+    display: none;
+    color: var(--text-color);
+}
+
+.header__center span{
+    color: var(--text-color);
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+}
+
+.theme-icons {
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 5px  10px;
+    margin-right: 10px;
+    color: var(--alternate-text-color);
+}
+
+.theme-icons i.active {
+    color: var(--icon-color);
+}
+
+.header__menu-icon i{
+    font-size: xx-large;
+}
+
+
+.download__app {
+    display: none;
+}
+.menu__icon i {
+    font-size: xx-large;
+    color: var(--text-color);
+}
+
+
+.small__screen-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 60vw;
+    height: 100vh;
+    z-index: 9999;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--main-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+  }
+
+.small__screen-menu.active{
+    right: 0;
+}
+
+.small__screen-menu-items {
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
+    margin-top: 5rem;
+    color: var(--font-color);
+}
+
+.small__screen-menu-item {
+    padding: 10px;
+    margin: 10px;
+    color: var(--font-color);
+}
+
+.small__screen-menu-item a {
+    color: var(--font-color);
+}
+
+.small__screen-menu-icon i {
+    font-size: xx-large;
+    color: var(--font-color);
+}
+
+.small__screen-menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0px 1rem;
+}
+
+.small__screen-menu-buttons button {
+    padding: 10px;
+}
+
+
+/* ================================================= */
+/* Hero Section styles */
+/* ================================================= */
+
+.hero__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    
+    padding: 2rem;
+}
+.hero__headers-title h1{
+    color: var(--text-color);
+    font-size: 40px;
+    margin: 0;
+    margin-top: 4rem;
+}
+
+.dath__name {
+    color: var(--link-color);
+}
+
+.hero__headers-subtitle p{
+    color: var(--subtitle-text-color);
+    font-size: 15px;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+
+.hero__download_btns {
+    display: flex;
+    justify-content: space-between;
+    width: 55vw;
+}
+.hero__download_btns img {
+    width: 100px;
+    height: 30px;
+}
+
+.hero__people {
+    margin-top: 2rem;
+}
+.hero__people img{
+    width: 70px;
+}
+.hero__people-subtitle {
+    color: var(--subtitle-text-color);
+}
+
+.hero__people-subtitle p {
+    font-size: small;
+}
+
+
+
+/* ================================================= */
+/* Video Section styles */
+/* ================================================= */
+
+.video__section {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Adjust the height as needed */
+    overflow: hidden;
+    margin-top:0rem;
+    margin-bottom: 2rem;
+}
+
+.video__section .video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.video__section video {
+    width: 80vw;
+    height: 80%;
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/* ================================================= */
+/* How Dath Section styles */
+/* ================================================= */
+
+.how-dath-works__section {
+    margin-top: 8rem;
+    color: var(--font-color);
+}
+
+.how-dath-header {
+    display: flex;
+    justify-content: center;
+}
+
+.how-dath-works__section h1 {
+    font-size: 30px;
+}
+
+.how-dath-works__section h1 span {
+    color: var(--link-color);
+}
+
+.how-dath-body {
+    padding: 0 1rem;
+}
+
+.how-dath-body-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    position: relative;
+}
+
+.how-dath-body-item.reverse .how-dath-body-image{
+    justify-content: left;
+    margin-top: 3rem;
+}
+
+.how-dath-body-description {
+    width: 60vw;
+    padding: 2rem;
+    position: absolute;
+    margin-left: 6rem;
+
+}
+
+
+.how-dath-body-description-title {
+    margin-bottom: 1rem;
+    font-weight: 900;
+    font-size: small;
+}
+
+.how-dath-body-description-subtitle {
+    font-size: x-small;
+    font-weight: 100;
+}
+
+.how-dath-body-image {
+    display: flex;
+    margin-top: 2rem;
+}
+
+.how-dath-body-image img{
+    width: 70%;
+}
+
+.walking__image img {
+    width: 90%;
+    content: var(--img-theme);
+    
+}
+
+
+/* Dark theme styles */
+
+
+
+/* ================================================= */
+/* Why Dath Section styles */
+/* ================================================= */
+.why-dathway__section {
+    margin-top: 4rem;
+    color: var(--font-color);
+ 
+}
+
+.why-dathway__header {
+    display: flex;
+    justify-content: center;
+}
+
+.why-dathway__section h1 {
+    font-size: 30px;
+}
+
+.why-dathway__section h1 span {
+    color: var(--link-color);
+}
+
+.why-dathway__body {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.why-dathway-top__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.why-dathway-bottom__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.why-dathway-top__grid .why-dathway-container {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: var(--container-color);
+    border: 1px var(--border-type) var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.why-dathway-bottom__grid .why-dathway-container {
+    padding: 2rem;
+    margin: 1rem;
+    background-color: var(--container-color);
+    border: 1px var(--border-type) var(--border-color);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+
+}
+
+.why-dathway-container__title {
+    font-weight: 900;
+    margin: 1rem 0;
+}
+
+.why-dathway-container__subtitle {
+    
+    font-weight: 100;
+    font-size: small;
+}
+
+.why-dathway__divider {
+    display: flex;
+    justify-content: center;
+}
+
+.why-dathway__divider img {
+    width: 90vw;
+}
+
+
+/* ================================================= */
+/* About Dathway Section styles */
+/* ================================================= */
+.about-dathway__section {
+    
+    color: var(--font-color);
+}
+
+.about-dathway__header {
+    display: flex;
+    justify-content: center;
+}
+
+.about-dathway__section h1 {
+    font-size: 25px;
+    text-align: center;
+    color: var(--font-color);
+}
+
+.about-dathway__section h1 span {
+    color: var(--link-color);
+}
+
+.about-dathway__body {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.about-dathway-containers {
+    display: flex;
+    position: relative;
+    justify-content: center; /* Center the containers horizontally */
+    align-items: center; /* Center the containers vertically */
+    height: 50vh; /* Adjust the height if needed */
+    
+}
+
+.about-dathway-container__item {
+    position: absolute;
+    top: 0;
+    right: 40px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+    
+}
+
+.about-dathway-container__item.active {
+    z-index: 2;
+    transition: transform 0.3s ease-in-out, z-index 0.1s 0.2s;
+}
+
+
+/* Add keyframes animation for sliding */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    33.33% {
+        transform: translateX(-100%);
+    }
+    66.66% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+.about-dathway__caption p {
+    font-size: x-small;
+}
+
+.about-dathway__user h3{
+    font-size: small;
+}
+
+.about-dathway__user-category p{
+    font-size: small;
+}
+
+.about-dathway-main__container {
+    padding: 1.5rem;
+    background-color: var(--container-color);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+    width: 200%;
+    
+}
+
+.about-dathway-image-container {
+    position: relative; /* To allow the image to be positioned */
+    z-index: 0; /* Ensure it's behind the container content */
+    width: 200%;
+}
+
+/* Apply a class to each container item to determine the transformation */
+.about-dathway-container__item.first {
+    transform: translateX(0);
+}
+
+.about-dathway-container__item.second {
+    transform: translateX(10%); /* Adjust the value as needed */
+}
+
+.about-dathway-container__item.third {
+    transform: translateX(20%); /* Adjust the value as needed */
+}
+
+/* Apply a border to the active container's image */
+.about-dathway-container__item.active .about-dathway-image-container img {
+    border: 2px solid var(--icon-color);
+    border-radius: 50%; /* Make it round */
+}
+
+
+/* ================================================= */
+/* Call To Action Dathway Section styles */
+/* ================================================= */
+
+.call-to-action {
+    background-color: var(--secondary-container-color);
+    padding: 2rem 1rem;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+}
+
+.cta__body {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.cta__title h1 {
+    font-size: 40px;
+    font-weight: 300;
+    margin: 0;
+    
+}
+
+.cta__description {
+    margin: 1rem 0;
+    font-size: 12px;
+}
+
+.cta__image img {
+    width: 120px;
+}
+
+.cta__buttons img {
+    width: 100px;
+    height: 30px;
+}
+
+/* ================================================= */
+/* FAQ Section styles */
+/* ================================================= */
+
+.faq__section {
+    margin-top: 4rem;
+    color: var(--font-color);
+}
+.faq__header {
+    display: flex;
+    justify-content: center;
+}
+
+.faq__section h1 {
+    font-size: 30px;
+    text-align: center;
+}
+
+.faq__section h1 span {
+    color: var(--link-color);
+}
+
+.faq__body {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.faq__container-item {
+    border-bottom: 1px solid var(--border-color);
+    width: 80vw;
+    padding: 0 1rem;
+}
+
+.faq__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq__title p {
+    font-size: 12px;   
+}
+
+.faq__icons i {
+    font-size: 30px;
+    color: var(--font-color);
+}
+
+.faq__answer {
+    padding: 1rem ;
+    font-size: small;
+    color: var(--font-color);
+}
+
+.faq__answer, .faq__icons .bx-chevron-up {
+    display: none;
+}
+
+.faq__container-item.active .faq__answer, .faq__container-item.active .faq__icons .bx-chevron-up {
+    display: block;
+}
+.faq__container-item.active .faq__icons .bx-chevron-down {
+    display: none;
+}
+
+/* ================================================= */
+/* Footer Section styles */
+/* ================================================= */
+
+footer {
+    background-color: var(--footer-color);
+    display: flex;
+    justify-content: center;
+    
+}
+.footer {
+    width: 80vw;
+    padding: 2rem 0;
+}
+
+.footer__top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    
+}
+
+.footer__company-links, .footer__resources-links {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: small;
+}
+.footer__company-header h6, .footer__resources-header h6 {
+    color: var(--text-color);
+    margin: 4px 0;
+}
+
+.footer__company-links a, .footer__resources-links a{ 
+    margin: 4px 0;
+    color: var(--subtitle-text-color);
+    white-space: nowrap;
+}
+
+.footer__newsletter {
+    text-align: left;
+    
+}
+
+.footer__logo img{
+    width: 150px;
+    height: 50px;
+}
+
+
+.footer__newsletter-title p{
+    color: var(--text-color);
+    font-weight: 100;
+    font-size: 10px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+
+.footer__newsletter-form {
+    position: relative;
+    margin-top: 4px;
+}
+.footer__newsletter-form input{
+    outline: none;
+    padding: 3px;
+    border-radius: 10px;
+}
+
+.footer__newsletter-form button {
+    border-radius: 10px;
+    background-color: var(--icon-color);
+    color: var(--text-color);
+    position: absolute;
+    right: 0%;
+    padding: 6px;
+    font-size: x-small;
+}
+
+
+.footer__bottom {
+    color: var(--subtitle-text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 2rem;
+    font-size: x-small;
+}
+
+.footer__bottom::before,
+.footer__bottom::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100vw; /* Adjust the width as needed */
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.footer__bottom::before {
+    right: 100%;
+}
+
+.footer__bottom::after {
+    left: 100%;
+}
+
+.footer__bottom > * {
+    z-index: 1; /* Ensure the content is above the lines */
+}
+
+.footer__social-media i{
+    margin: 0 5px;
+    font-size: 10px;
+}
+
+
+@media screen and (min-width: 1200px) {
+    /* ================================================= */
+    /* Header styles */
+    /* ================================================= */
+    .header {
+        padding: 10px 100px;
+    }
+    .logo img{
+        width: 200px;
+    }
+    .download__app {
+        display: block;
+    }
+    .menu__icon, .small__screen-menu {
+        display: none;
+    }
+    .header__center {
+        display: block;
+    }
+    .header__center span{
+        margin: 0px 20px;
+        color: var(--text-color);
+    }
+    /* ================================================= */
+    /* Hero Section styles */
+    /* ================================================= */
+    .hero__download_btns {
+        width: 32vw;
+    }
+    .hero__section {    
+        padding: 2rem 7rem;
+        width: 50vw;
+    }
+    .hero__download_btns img {
+        width: 200px;
+        height: 60px;
+    }
+    .hero__headers-title h1{
+        font-size: 80px;
+    }
+    .hero__headers-subtitle p{
+        font-size: 25px;
+        margin-bottom: 3rem;
+    }
+    .hero__download_btns {
+        width: 30vw;
+    }
+    .hero__people img{
+        width: 100px;
+    }
+    .all__hero__section {
+        height: 150vh;
+    }
+    /* ================================================= */
+    /* Video Section styles */
+    /* ================================================= */
+    .video__section {
+        margin-top: 12rem;
+        margin-bottom: 22rem;
+    }
+    .video__section video {
+        width: auto;
+        top: 50%;
+        left: 50%;
+    }
+
+    /* ================================================= */
+    /* How Dath Section styles */
+    /* ================================================= */
+
+    .how-dath-works__section {
+        margin-top: 24rem;
+    }
+    .how-dath-works__section h1 {
+        font-size: 50px;
+    }
+    .how-dath-body {
+        padding: 0 15rem;
+    }
+
+    .how-dath-body-item {
+        flex-direction: row;
+        width: 65vw;
+    }
+    .how-dath-body-item.reverse {
+        flex-direction: row;
+    }
+    .how-dath-body-description {
+        width: 20vw;
+        position: relative;
+    }
+    .point__image {
+        margin-left: 0rem;
+    }
+    .how-dath-body-description-subtitle {
+        font-size: small;
+    }
+    .how-dath-body-description-title {
+        font-size: large;
+    }
+    .sitting__image {
+        margin-left: 6rem;
+    }
+    /* ================================================= */
+    /* Wny Dath Section styles */
+    /* ================================================= */
+    .why-dathway__section h1 {
+        font-size: 50px;
+    }
+    .why-dathway-top__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .why-dathway-bottom__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .why-dathway__body {
+        padding: 0 15rem;
+    }
+    .why-dathway-bottom__grid .why-dathway-container {
+        display: flex;
+        text-align: left;
+    }
+    .why-dathway__divider img {
+        width: 70vw;
+    }
+
+    /* ================================================= */
+    /* About Dathway Section styles */
+    /* ================================================= */
+    .about-dathway__section h1 {
+        font-size: 50px;
+        
+    }
+    .about-dathway__caption p {
+        font-size: small;
+    }
+    
+    .about-dathway__user h3{
+        font-size: medium;
+    }
+    
+    .about-dathway__user-category p{
+        font-size: small;
+    }
+
+    .about-dathway-containers {
+        height: 60vh; /* Adjust the height if needed */
+        
+    }
+    /* ================================================= */
+    /* Call To Action Dathway Section styles */
+    /* ================================================= */
+
+    .cta__title h1 {
+        font-size: 80px;
+    }
+    .call-to-action {
+        padding: 4rem 15rem;
+    }
+
+    .cta__description {
+        margin: 1rem 0;
+        font-size: 20px;
+    }
+    .cta__image img {
+        width: 250px;
+    }
+
+    .cta__buttons img {
+        width: 200px;
+        height: 60px;
+    }
+
+    /* ================================================= */
+    /* FAQ Section styles */
+    /* ================================================= */
+    .faq__section {
+        margin-top: 8rem;
+    }
+    .faq__section h1 {
+        font-size: 50px;
+    }
+
+    .faq__body {
+        padding: 4rem 15rem;
+    }
+    .faq__title p {
+        font-size: 20px;   
+    }
+    .faq__icons i {
+        font-size: 40px;
+    }
+    .faq__container-item { 
+        padding: 0 2rem;
+        width: 60vw;
+    }
+
+    /* ================================================= */
+    /* Footer Section styles */
+    /* ================================================= */
+    .footer {
+        width: 70vw;
+    }
+    .footer__top {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .footer__newsletter-form button {
+        right: 20%;
+    }
+    .footer__newsletter-form input{
+        
+        padding: 2px;
+        border-radius: 10px;
+    }
+    .footer__bottom {
+        font-size: small;
+    }
+    .footer__social-media i{
+        margin: 0 5px;
+        font-size: small;
+    }
+    .footer__bottom::before,
+    .footer__bottom::after {
+        top: 50%;
+        width: 35vw; /* Adjust the width as needed */
+        height: 1px;
+        background-color: var(--border-color);
+    }
+
+    .footer__bottom::before {
+        right: 70%;
+    }
+
+    .footer__bottom::after {
+        left: 70%;
+    }
+    }

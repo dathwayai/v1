@@ -1,0 +1,101 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block menu %}
+<div class="content__container menu__block">
+   
+    <div class="content__container-body">
+        <div class="content__container-body-left">
+            <div class="chats-detail_section">
+                <div class="chats-detail">
+                    <div class="chats-detail__body">
+                        <div class="chats-detail__body-container">
+                            <div class="chats-detail__body-header">
+                                <h1>Initiate a Conversation with Dathway</h1>
+                            </div>
+                            <div class="chats-detail__suggestions">
+                                <!-- Suggestions for Starting or Advancing in a Tech Career -->
+                                <div class="chats-detail__suggestions-item">
+                                    <p class="chats-detail__suggestions-item-title">
+                                        I have a tech skill but want to advance. Can you guide me?
+                                    </p>
+                                </div>
+                                <div class="chats-detail__suggestions-item">
+                                    <p class="chats-detail__suggestions-item-title">
+                                        I'm not sure about my current tech skill. How can I assess it?
+                                    </p>
+                                </div>
+                                <div class="chats-detail__suggestions-item">
+                                    <p class="chats-detail__suggestions-item-title">
+                                        I don't have any tech skills. Where should I start?
+                                    </p>
+                                </div>
+                                <div class="chats-detail__suggestions-item">
+                                    <p class="chats-detail__suggestions-item-title">
+                                        I don't think I am capable of learning a tech skill. Can you help me gain confidence?
+                                    </p>
+                                </div>
+                                <div class="chats-detail__suggestions-item">
+                                    <p class="chats-detail__suggestions-item-title">
+                                        How can I identify the most in-demand tech skills for career growth?
+                                    </p>
+                                </div>
+                                <div class="chats-detail__suggestions-item">
+                                    <p class="chats-detail__suggestions-item-title">
+                                        What resources can I use to enhance my existing tech skills?
+                                    </p>
+                                </div>
+               
+                              
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="chats-detail__type">
+                        <input id="chat_text" type="text" placeholder="Start a new chat" disabled>
+                        <button id="send_chat"><i class='bx bx-send' ></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content__container-body-right">
+            <div class="content__container-body-right-skills">
+                <div class="content__container-body-right-skills-header">
+                    <h1>
+                        Skills
+                    </h1>
+                </div>  
+
+                <div class="content__container-body-right-skills-body">
+                    <p>
+                        No skill yet, start a conversation. 
+                    </p>
+                </div>
+               
+
+            </div>
+            <div class="content__container-body-right-courses">
+                <div class="content__container-body-right-courses-header">
+                    <h1>Courses</h1>
+                </div>  
+    
+                <div class="content__container-body-right-course-body">
+                    <p>
+                        No course yet, start a conversation. 
+                    </p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block dashboard-sidebar %}
+active
+{% endblock %}
+
+{% block title %} 
+    Dashboard | Dathway
+{% endblock %}

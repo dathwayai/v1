@@ -1,0 +1,233 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--=============== BOXICONS ===============-->
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+</head>
+<body class="body__section" data-theme="dark">
+    <header>
+        <div class="dashboard__header__section">
+            <a class="header__logo" href="/dashboard">
+                <img id="logo-image" src="{% static 'images/logo.png' %}" alt="">
+            </a>
+            <div class="dashboard__header__section-profile">
+                <!-- <div class="theme-icons">
+                    <i class='bx bx-sun'></i>
+                    <i class='bx bx-moon active' ></i>
+                </div> -->
+                <p class="header__welcome">
+                    Welcome {{request.user.username}}
+                </p>
+                
+                <a href="/sign_out" class="header__signout">
+                    <i class='bx bx-log-out'></i>
+                    <p >Sign Out</p>
+                </a>
+            </div>
+        </div>
+       
+    </header>
+
+    <main>
+        <!-- <section class="sidebar__container">
+
+            <div class="sidebar__container-header">
+                <a class="header__logo" href="/dashboard">
+                    <img id="logo-image" src="{% static 'images/logo.png' %}" alt="">
+                </a>
+            </div>
+
+            <div class="sidebar__container-body">
+                <a href="/dashboard" class="sidebar__container-body-link {% block dashboard-sidebar %} {% endblock %}">
+                    <i class='bx bxs-book-content'></i>
+                    <p >Dashboard</p>
+                </a>
+
+                <a href="/chat" class="sidebar__container-body-link {% block chat-sidebar %} {% endblock %}">
+                    <i class='bx bx-chat'></i>
+                    <p >Chat</p>
+                </a>
+
+                <a href="/course" class="sidebar__container-body-link {% block course-sidebar %} {% endblock %}">
+                    <i class='bx bxs-book-alt'></i>
+                    <p >Course</p>
+                </a>
+
+                <a href="/analytics" class="sidebar__container-body-link {% block analytics-sidebar %} {% endblock %}">
+                    <i class='bx bx-analyse' ></i>
+                    <p >Analytics</p>
+                </a>
+
+                <a href="/notifications" class="sidebar__container-body-link {% block notifications-sidebar %} {% endblock %}">
+                    <i class='bx bxs-bell' ></i>
+                    <p >Notifications</p>
+                </a>
+
+                <a href="/profile" class="sidebar__container-body-link {% block profile-sidebar %} {% endblock %}">
+                    <i class='bx bxs-user-pin' ></i>
+                    <p >Profile</p>
+                </a>
+
+                <a href="/settings" class="sidebar__container-body-link {% block settings-sidebar %} {% endblock %}">
+                    <i class='bx bxs-cog' ></i>
+                    <p >Settings</p>
+                </a>
+
+                <a href="/sign_out" class="sidebar__container-body-link ">
+                    <i class='bx bx-log-out'></i>
+                    <p >Sign Out</p>
+                </a>
+                
+              
+            </div>
+            
+        </section> -->
+
+        <section class="content__container-section">
+           {% block menu %} {% endblock %}
+        </section>
+       
+    </main>
+   
+
+
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Define the observer options
+        var options = {
+          root: null, // use the viewport as the root
+          rootMargin: '0px',
+          threshold: 0.5 // trigger when 50% of the element is visible
+        };
+    
+        // Create a new Intersection Observer
+        var observer = new IntersectionObserver(handleIntersection, options);
+    
+        // Select all sections with the animated class
+        var animatedSections = document.querySelectorAll('div');
+    
+        // Loop through each animated section and observe it
+        animatedSections.forEach(function(section) {
+          observer.observe(section);
+        });
+    
+        // Function to handle intersection changes
+        function handleIntersection(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              // Add the animated class if the section is in view
+              entry.target.classList.add('animated-element');
+              // Stop observing the section to avoid unnecessary callbacks
+              observer.unobserve(entry.target);
+            }
+          });
+        }
+    
+        // Function to scroll to a specific section
+        function scrollToSection(sectionId) {
+          var section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+    
+        // Show/hide scroll-to-section button based on scroll position
+        window.addEventListener('scroll', function() {
+          var scrollToSectionBtn = document.getElementById('scrollToSectionBtn');
+          if (window.scrollY > 500) {
+            scrollToSectionBtn.style.display = 'block';
+          } else {
+            scrollToSectionBtn.style.display = 'none';
+          }
+        });
+      </script>
+
+    <script>
+		// Check local storage
+		let localS = localStorage.getItem('theme'),
+			themeToSet = localS
+
+		// If local storage is not set, we check the OS preference
+		if (!localS) {
+			themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+		}
+
+		// Set the correct theme
+		document.documentElement.setAttribute('data-theme', themeToSet)
+	</script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeBtn = document.querySelector(".theme-icons")
+            const sunButton = document.querySelector(".bx-sun");
+            const moonButton = document.querySelector(".bx-moon");
+            const heroSection = document.getElementById('heroSection');
+            const dataTheme = document.documentElement.getAttribute('data-theme');
+
+            if (dataTheme === 'dark') {
+                heroSection.style.backgroundImage = 'url({% static "images/dark-bg.png" %})';
+            } else {
+                heroSection.style.backgroundImage = 'url({% static "images/light-bg.png" %})';
+            }
+
+
+            // Theme switcher function
+            const switchTheme = () => {
+                // Get root element and data-theme value
+                const rootElem = document.documentElement
+                let dataTheme = rootElem.getAttribute('data-theme'),
+                    newTheme
+
+                newTheme = (dataTheme === 'light') ? 'dark' : 'light'
+
+                // Set the new HTML attribute
+                rootElem.setAttribute('data-theme', newTheme)
+                
+
+                // Set the new local storage item
+                localStorage.setItem("theme", newTheme)
+            }
+            
+    
+            themeBtn.addEventListener("click", function () {
+            if (sunButton.classList.contains("active")) {
+                sunButton.classList.remove("active");
+                moonButton.classList.add("active");
+                heroSection.style.backgroundImage = 'url({% static "images/dark-bg.png" %})';
+                switchTheme()
+            } else {
+                moonButton.classList.remove("active");
+                sunButton.classList.add("active");
+                heroSection.style.backgroundImage = 'url({% static "images/light-bg.png" %})';
+                switchTheme()
+            }
+            });
+        });
+        
+  
+    </script>
+ 
+    
+    
+
+    
+</body>
+</html>
+{% endblock content %}

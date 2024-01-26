@@ -1,0 +1,178 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block menu %}
+<div class="chats-detail_section menu__block">
+    <div class="chats-detail">
+        <div class="chats-detail__body">
+            <div class="chats-detail__body-container">
+                <div class="chats-detail__body-header">
+                    <h1>Start a conversation with Dathway</h1>
+                </div>
+                <div class="chats-detail__suggestions">
+                    <div class="chats-detail__suggestions-item">
+                        <p class="chats-detail__suggestions-item-title">
+                            Start a new career in tech
+                        </p>
+                        <p class="chats-detail__suggestions-item-subtitle">
+                            Discover a new career in science and technology.
+                        </p>
+                    </div>
+                    <div class="chats-detail__suggestions-item">
+                        <p class="chats-detail__suggestions-item-title">
+                            Start a new career in tech
+                        </p>
+                        <p class="chats-detail__suggestions-item-subtitle">
+                            Discover a new career in science and technology.
+                        </p>
+                    </div>
+                    <div class="chats-detail__suggestions-item">
+                        <p class="chats-detail__suggestions-item-title">
+                            Start a new career in tech
+                        </p>
+                        <p class="chats-detail__suggestions-item-subtitle">
+                            Discover a new career in science and technology.
+                        </p>
+                    </div>
+                    <div class="chats-detail__suggestions-item">
+                        <p class="chats-detail__suggestions-item-title">
+                            Start a new career in tech
+                        </p>
+                        <p class="chats-detail__suggestions-item-subtitle">
+                            Discover a new career in science and technology.
+                        </p>
+                    </div>
+               </div>
+            </div>
+          
+        </div>
+    
+        <div class="chats-detail__type">
+            <input id="chat_text" type="text" placeholder="Start a new chat">
+            <button id="send_chat"><i class='bx bx-send' ></i></button>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const textchat = document.getElementById('chat_text');
+    const imagechat = document.getElementById('chat-image');
+    const sendchatBtn = document.getElementById('send_chat');
+
+
+    sendchatBtn.addEventListener("click", function () {
+        const textchatValue = textchat.value;
+        const formData = new FormData();
+        formData.append('text', textchatValue);
+        formData.append('image', imagechat.files[0]);
+        $.ajax({
+                url: 'send-chat',
+                method: 'POST',
+                data: formData, // Use the FormData object
+                processData: false, // Don't process the data
+                contentType: false, // Don't set content type (automatically set for FormData)
+                success: function (response) {
+                    window.location.reload()
+                    if (response.chat === 'success') {
+                        // Redirect or perform other actions for a successful login
+                        console.log("Posted successfully");
+                        window.location.reload()
+                    } else {
+                        console.log("Unexpected response:", response);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    if (xhr.status === 400) {
+                        console.log("Post unsuccessful");
+                    } else {
+                        console.log("Error:", status, error);
+                    }
+                }
+            });
+        });
+</script>
+<script>
+    // Wait for the DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get the last chat element
+        const lastchat = document.querySelector('.chats-detail__body-item:last-child');
+
+        // Check if the lastchat exists
+        if (lastchat) {
+            // Scroll to the last chat
+            lastchat.scrollIntoView();
+        }
+    });
+</script>
+
+<script>
+    // Function to toggle the emoji picker visibility
+    function toggleEmojiPicker() {
+        const emojiPicker = document.getElementById('emoji-picker');
+        emojiPicker.style.display = emojiPicker.style.display === 'block' ? 'none' : 'block';
+    }
+  
+  // Function to insert the selected emoji into the post text field
+  function insertEmoji(emojiObject) {
+    console.log('Received emojiObject:', emojiObject);
+  
+    const postText = document.getElementById('chat_text'); // Replace with your post text field ID
+    const emoji = emojiObject.unicode;
+    console.log('Selected emoji:', emoji);
+  
+    postText.value += emoji; // Append the selected emoji to the current text
+    toggleEmojiPicker(); // Hide the emoji picker
+  }
+  
+  
+    // Add a click event listener to the smile icon to show/hide the emoji picker
+    const smileIcon = document.querySelector('.bx-smile'); // Replace with the correct selector
+    smileIcon.addEventListener('click', toggleEmojiPicker);
+  
+    // Initialize the emoji picker
+    const emojiPicker = document.getElementById('emoji-picker');
+    emojiPicker.innerHTML = '<emoji-picker></emoji-picker>';
+    emojiPicker.addEventListener('emoji-click', (event) => {
+        insertEmoji(event.detail.emoji);
+    });
+  </script>
+
+<script>
+    // Function to handle file input change and update image preview
+    function handleFileInputChange(inputElement, previewElement) {
+        const fileInput = inputElement;
+        const previewImage = previewElement;
+  
+        fileInput.addEventListener("change", function () {
+            const file = fileInput.files[0];
+            const imagePreview = document.querySelector('.chat__image-preview');
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.style.display = "block";
+                    previewImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+  
+  
+    // Initialize image preview for profile photo
+    const imageInput = document.getElementById("chat-image");
+    const imagePreview = document.getElementById("image-preview");
+    handleFileInputChange(imageInput, imagePreview);
+  </script>
+
+
+
+{% endblock %}
+
+{% block chat-sidebar %}
+active
+{% endblock %}
+
+{% block title %} 
+    Chat | MarketBat 
+{% endblock %}

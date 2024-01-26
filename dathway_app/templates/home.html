@@ -1,0 +1,1171 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dathway - where AI meets career</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--=============== BOXICONS ===============-->
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+</head>
+<body data-theme="dark">
+    <section class="authentication__section">
+        <div class="authentication__container">
+          <div class="authentication__icon">
+            <i id="close-authentication" class='bx bx-x'></i>
+          </div>
+         
+            <div class="authentication__header">
+              <div class="authentication__header-container">
+                <div class="authentication__header-item">
+                  <h2><a href="#login">Log In</a></h2>
+                </div>
+                <div class="authentication__header-item active">
+                  <h2><a href="#signup">Sign Up</a></h2>
+                </div>
+              </div>
+               
+            </div>
+            <div class="authentication__body">
+              <div class="login__container-body">
+                <div class="login__container-item">
+                    <label for="login__email">Username</label>
+                    <input id="login__email" type="email" placeholder="Enter your email address....">
+                </div>
+                <div class="login__container-item password">
+                  <label for="login__password">
+                    <span>Password</span>
+                    <span>
+                      <a href="#forgotpassword">
+                        Forgot Password?
+                      </a>
+                    </span>
+                  </label>
+                  <input  id="login__password" class="login__password" type="password" placeholder="Enter your password....">
+                  <span class="show__password ">
+                    <i class='bx bxs-show'></i>
+                    <i class='bx bxs-hide'></i>
+                  </span>
+                </div>
+                <div class="login__container-item error__message" id="login-error__message">
+              
+                </div>
+                <div class="login__container-item login">
+                  <button id="login__btn">Login</button>
+                </div>
+                <!-- 
+                <div class="login__container-item">
+                  <p>OR</p>
+                </div>
+                <div class="login__container-item google">
+                  <div class="login__container-item-google">
+                    <a href="">
+                      <span><i class='bx bxl-google' ></i></span>
+                      <span>Continue with Google</span>
+                    </a>
+                  </div>
+                </div> -->
+              </div>
+              <div class="signup__container-body">
+                <div class="login__container-item">
+                  <label for="signup_firstnamel">First Name</label>
+                  <input id="signup__firstname" type="text" placeholder="Enter your first name....">
+                </div>
+                <div class="login__container-item">
+                  <label for="signup__lastname">Last Name</label>
+                  <input id="signup__lastname" type="text" placeholder="Enter your last name....">
+              </div>
+                <div class="login__container-item">
+                    <label for="signup__email">Email Address</label>
+                    <input id="signup__email" type="email" placeholder="Enter your email address....">
+                </div>
+                <div class="login__container-item">
+                    <label for="signup__username">Username</label>
+                    <input id="signup__username" type="text" placeholder="Enter your username....">
+                </div>
+                <div class="login__container-item password">
+                  <label for="signup__password">
+                    Password
+                    </span>
+                  </label>
+                  <input id="signup__password" class="login__password" type="password" placeholder="Enter your password....">
+                  <span class="show__password ">
+                    <i class='bx bxs-show'></i>
+                    <i class='bx bxs-hide'></i>
+                  </span>
+                </div>
+                <div class="login__container-item password">
+                  <label for="login__password">
+                    Confirm Password
+                    </span>
+                  </label>
+                  <input id="signup__confirm-password" class="login__password" type="password" placeholder="Confirm your password....">
+                  <span class="show__password ">
+                    <i class='bx bxs-show'></i>
+                    <i class='bx bxs-hide'></i>
+                  </span>
+                </div>
+                <div class="login__container-item marketing">
+                  <input type="checkbox" name="" id="marketing__checkbox">
+                  <span>I agree to receive marketing updates from MarketBat.</span>
+                </div>
+
+                <div class="login__container-item login">
+                  <button id="signup__btn"> Create an account</button>
+                </div>
+
+                <div class="login__container-item error__message" id="signup-error__message" >
+                  
+                </div>
+
+                <!-- <div class="login__container-item">
+                  <p>OR</p>
+                </div>
+                <div class="login__container-item google">
+                  <div class="login__container-item-google">
+                    <a href="">
+                      <span><i class='bx bxl-google' ></i></span>
+                      <span>Continue with Google</span>
+                    </a>
+                  </div>
+                </div> -->
+
+                <div class="login__container-item">
+                  <p class="signup__agreement">By proceeding, you agree to MarketBat’s <br> <span>Terms of Use</span> & <span>Privacy Policy.</span></p>
+                </div>
+              </div>
+             
+            </div>
+        </div>
+      </section> 
+    <section class="all__hero__section " id="heroSection">
+        <div class="header">
+            <div class="header__left">
+                <span class="logo">
+                    <a href="/">
+                        <img src="{% static 'images/logo.png' %}" alt="">  
+                    </a>
+                   
+                </span>
+            </div>
+            <div class="header__center">
+                <span onclick="scrollToSection('heroSection')">
+                    Home
+                </span>
+                <span onclick="scrollToSection('how-dath-works__section')">
+                   How it Works
+                </span>
+                <span onclick="scrollToSection('why-dathway__section')">
+                    Why Dathway
+                </span>
+                <span onclick="scrollToSection('faq__section')">
+                    FAQ
+                </span>
+                <span onclick="scrollToSection('footer')">
+                    Contact
+                </span>
+            </div>
+            <div class="header__right">
+                <div class="theme-icons">
+                    <i class='bx bx-sun'></i>
+                    <i class='bx bx-moon active' ></i>
+                </div>
+                <!-- <div class="menu__icon">
+                    <i class='bx bx-menu'></i>
+                </div> -->
+                <div class="header__buttons">
+                    <button><a href="#login">Log In</a></button>
+                    <button class="signup__btn"><a href="#signup">Sign Up</a></button>
+                </div> 
+               
+                <div class="small__screen-menu">
+                    <div class="small__screen-menu-icon">
+                        <i class='bx bx-x' ></i>
+                    </div>
+                    <div class="small__screen-menu-items">
+                        <span class="small__screen-menu-item">
+                            <a href="/">Home</a>
+                        </span>
+                        <span class="small__screen-menu-item">
+                            <a href="#why-dathway__section">Our Purpose</a>
+                        </span>
+                        <span class="small__screen-menu-item">
+                            <a href="#how-dath-works__section">How it Works</a>
+                        </span>
+                        <span class="small__screen-menu-item">
+                            <a href="#footer">Contact</a>
+                        </span>
+                    </div>
+                    <div class="small__screen-menu-buttons download__app ">
+                        <button><a href="#login">Log In</a></button>
+                        <button class="signup__btn"><a href="#signup">Sign Up</a></button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="hero__section animated-element">
+            <div class="hero__headers">
+                <span class="hero__headers-title">
+                    <h1>
+                        Unlock Your <br> Future with <span class="dath__name">Dathway</span>
+                    </h1>
+                    
+                </span>
+                <span class="hero__headers-subtitle">
+                    <p>Start your career today with a personalized road map drawn  directly from your social and psychometric data.</p>
+                </span>
+            </div>
+            <div class="hero__download_btns">
+                <span class="hero__cta_start_journey">
+                    <a href="#login">
+                        <button>
+                           <p>Try Dathway</p> 
+                        </button>
+                    </a>
+                </span>
+                <span class="hero__cta_watch_demo" onclick="scrollToSection('video_section')">
+                    
+                       <button>
+                        <i class='bx bx-play-circle'></i>
+                        <p>
+                            Watch Demo
+                        </p>
+                       
+                    </button>
+                    
+                </span>
+            </div>
+
+            <div class="hero__people animated-element">
+                <span class="hero__people-images">
+                    <img src="{% static 'images/people.png' %}" alt="">
+                </span>
+                <span class="hero__people-subtitle">
+                    <p>1,000+ people already took their first step in their career transitioning</p>
+                </span>
+            </div>
+        </div>
+        <div class="video__section animated-element" id="video_section">
+        
+            <div class="video-container">
+                
+                <video autoplay loop muted>
+                    <source src="{% static 'images/video.mp4' %}" type="video/mp4" muted>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-dath-works__section animated-element" id="how-dath-works__section">
+        <div class="how-dath-header">
+            <h1>How Dathway <span>Works</span></h1>                                    
+        </div> 
+        <div class="how-dath-body__container">
+            <div class="how-dath-body">
+                <div class="how-dath-body-item">
+                    <div class="how-dath-body-description">
+                        <div class="how-dath-body-description-title">
+                            <i class='bx bx-check-circle'></i>  Your Career Starts Here
+                        </div>
+                        <div class="how-dath-body-description-subtitle">
+                            We understand that choosing the right career path can be daunting, regardless of the industry. That's why we've developed Dath - a friendly AI-powered career guidance and learning assistant.
+                        </div>
+                    </div>  
+                    
+                </div>
+                <div class="how-dath-body-item">
+                    <div class="how-dath-body-description">
+                        <div class="how-dath-body-description-title">
+                            <i class='bx bx-check-circle'></i>  Personalized Guidance at Your Fingertips
+                        </div>
+                        <div class="how-dath-body-description-subtitle">
+                            We understand that choosing the right career path can be daunting, regardless of the industry. That's why we've developed Dath - a friendly AI-powered career guidance and learning assistant.
+                        </div>
+                    </div>    
+                </div>
+                <div class="how-dath-body-item">
+                    <div class="how-dath-body-description">
+                        <div class="how-dath-body-description-title">
+                            <i class='bx bx-check-circle'></i> Seemless Guidance
+                        </div>
+                        <div class="how-dath-body-description-subtitle">
+                            Learning and Transitioning to Any Career: Whether you're a recent graduate, a professional considering a career change, or someone seeking in-depth resources, learning and insights in your industry, Dath is your perfect companion.
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <div class="how-dath-right">
+                <div class="how-dath__image">
+                    <img src="{% static 'images/cta.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+       
+    </section>
+
+    <section class="why-dathway__section" id="why-dathway__section">
+        <div class="why-dathway__header">
+            <h1>Why <span>Dathway</span></h1>     
+        </div>
+        <div class="why-dathway__body">
+            <div class="">
+                <div class="why-dathway-top__grid">
+                    <div class="why-dathway-container">
+                        <div class="why-dathway-container__image">
+                            <img src="{% static 'images/affordable.png' %}" alt="">
+                        </div>
+                        <div class="why-dathway-container__description">
+                            <div class="why-dathway-container__title">
+                                Affordable
+                            </div>
+                            <div class="why-dathway-container__subtitle">
+                                We believe that everyone should have access to affordable career guidance. We offer an economical solution without compromising on quality.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-dathway-container">
+                        <div class="why-dathway-container__image">
+                            <img src="{% static 'images/insights.png' %}" alt="">
+                        </div>
+                        <div class="why-dathway-container__description">
+                            <div class="why-dathway-container__title">
+                                AI-Powered Insights
+                            </div>
+                            <div class="why-dathway-container__subtitle">
+                                Leverage the power of artificial intelligence to gain valuable insights into your strengths and potential career paths
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-dathway-container">
+                        <div class="why-dathway-container__image">
+                            <img src="{% static 'images/resources.png' %}" alt="">
+                        </div>
+                        <div class="why-dathway-container__description">
+                            <div class="why-dathway-container__title">
+                                Extensive Resources
+                            </div>
+                            <div class="why-dathway-container__subtitle">
+                                Access a comprehensive library of tailored resources,  industry insights, educational materials, and skill-building opportunities for your chosen career path.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-dathway-bottom__grid">
+                    <div class="why-dathway-container">
+                        <div class="why-dathway-container__image">
+                            <img src="{% static 'images/convenient.png' %}" alt="">
+                        </div>
+                        <div class="why-dathway-container__description">
+                            <div class="why-dathway-container__title">
+                                Convenient
+                            </div>
+                            <div class="why-dathway-container__subtitle">
+                                Say goodbye to lengthy career assessments and research. Get quick and accurate results with our streamlined process.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="why-dathway-container">
+                        <div class="why-dathway-container__image">
+                            <img src="{% static 'images/accessible.png' %}" alt="">
+                        </div>
+                        <div class="why-dathway-container__description">
+                            <div class="why-dathway-container__title">
+                                Accessible
+                            </div>
+                            <div class="why-dathway-container__subtitle">
+                                Our mobile app - Dath, is readily available for download, ensuring that you can embark on your career journey anytime, anywhere.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="why-dathway__divider">
+            <img src="{% static 'images/cone-divider.png' %}" alt="">
+        </div>
+    </section>
+
+    <section class="about-dathway__section" id="about-dathway__section">
+        <div class="about-dathway__header">
+            <h1>What Our Users Have To Say <br> <span>About Dathway</span></h1>     
+        </div>
+        <div class="about-dathway__body">
+            <div class="about-dathway-containers">
+                <div class="about-dathway-container__item first">
+                    <div class="about-dathway-main__container">
+                        <div class="about-dathway__caption">
+                            <p>
+                                I was skeptical at first, but this AI career app has been a game-changer for me. It provided personalized career recommendations based on my skills and interests, and even helped me prepare for interviews with its mock interview feature. I landed my dream job thanks to this app!
+                            </p>
+                        </div>
+                        <div class="about-dathway__user">
+                            <h3>
+                                John Doe
+                            </h3>
+                        </div>
+                        <div class="about-dathway__user-category">
+                            <p>
+                                Intern
+                            </p>
+                        </div>
+                    </div>  
+                    <div class="about-dathway-image-container">
+                        <img src="{% static 'images/user-1.png' %}" alt="">
+                    </div>
+                   
+
+                </div>
+                <div class="about-dathway-container__item second">
+                    <div class="about-dathway-main__container">
+                        <div class="about-dathway__caption">
+                            <p>
+                                I was skeptical at first, but this AI career app has been a game-changer for me. It provided personalized career recommendations based on my skills and interests, and even helped me prepare for interviews with its mock interview feature. I landed my dream job thanks to this app!
+                            </p>
+                        </div>
+                        <div class="about-dathway__user">
+                            <h3>
+                                Adams Victor
+                            </h3>
+                        </div>
+                        <div class="about-dathway__user-category">
+                            <p>
+                                Student
+                            </p>
+                        </div>
+                    </div>  
+                    <div class="about-dathway-image-container">
+                        <img src="{% static 'images/user-2.png' %}" alt="">
+                    </div>
+                   
+
+                </div>
+                <div class="about-dathway-container__item third active">
+                    <div class="about-dathway-main__container">
+                        <div class="about-dathway__caption">
+                            <p>
+                                I was skeptical at first, but this AI career app has been a game-changer for me. It provided personalized career recommendations based on my skills and interests, and even helped me prepare for interviews with its mock interview feature. I landed my dream job thanks to this app!
+                            </p>
+                        </div>
+                        <div class="about-dathway__user">
+                            <h3>
+                                Eunice Ayo
+                            </h3>
+                        </div>
+                        <div class="about-dathway__user-category">
+                            <p>
+                                Graduate
+                            </p>
+                        </div>
+                    </div>  
+                    <div class="about-dathway-image-container">
+                        <img src="{% static 'images/user-3.png' %}" alt="">
+                    </div>
+                   
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action" id="call-to-action">
+        <div class="cta__body">
+            <div class="cta__body-left">
+                <div class="cta__title">
+                    <h1>Get Started <br> with Dathway</h1>
+                </div>
+                <div class="cta__description">
+                    In the mean time, get free access to the latest updates on the tech industry and career advice from our experts. With instant access to exclusive resources; it's never been easier to build and stay on top of your career!
+                </div>
+                <div class="cta__buttons">
+                    
+                        <span class="hero__cta_start_journey">
+                            <a href="#login">
+                                <button>
+                                   <p>Try Dathway</p> 
+                                </button>
+                        </span>
+                        <span class="hero__cta_watch_demo">
+                            <a href="#video_section">
+                               <button>
+                                <i class='bx bx-play-circle'></i>
+                                <p>
+                                    Watch Demo
+                                </p>
+                               
+                            </button>
+                            </a>
+                        </span>
+             
+                   
+                </div>
+            </div>
+
+            <div class="cta__body-right">
+                <div class="cta__image">
+                    <img src="{% static 'images/cta.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq__section" id="faq__section">
+        <div class="faq__header">
+            <h1>
+                Frequently Asked <span>Questions</span>
+            </h1>
+        </div>
+        <div class="faq__body">
+            <div class="faq__container-items">
+                <div class="faq__container-item">
+                    <div class="faq__top">
+                        <div class="faq__title">
+                            <p>What is Dathway all about ?</p>
+                        </div>
+                        <div class="faq__icons">
+                            <i class='bx bx-chevron-down'></i>
+                            <i class='bx bx-chevron-up'></i>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        Dathway can help you start your career today with a personalized road map drawn directly from your social and psychometric data.
+                    </div>
+                
+                </div>
+                <div class="faq__container-item">
+                    <div class="faq__top">
+                        <div class="faq__title">
+                            <p>How do i download the App ?</p>
+                        </div>
+                        <div class="faq__icons">
+                            <i class='bx bx-chevron-down'></i>
+                            <i class='bx bx-chevron-up'></i>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        Dathway can help you start your career today with a personalized road map drawn directly from your social and psychometric data.
+                    </div>
+                
+                </div>
+                <div class="faq__container-item">
+                    <div class="faq__top">
+                        <div class="faq__title">
+                            <p>Is Dathway free ?</p>
+                        </div>
+                        <div class="faq__icons">
+                            <i class='bx bx-chevron-down'></i>
+                            <i class='bx bx-chevron-up'></i>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        Dathway can help you start your career today with a personalized road map drawn directly from your social and psychometric data.
+                    </div>
+                
+                </div>
+                <div class="faq__container-item">
+                    <div class="faq__top">
+                        <div class="faq__title">
+                            <p>How does the Dathway App work ?</p>
+                        </div>
+                        <div class="faq__icons">
+                            <i class='bx bx-chevron-down'></i>
+                            <i class='bx bx-chevron-up'></i>
+                        </div>
+                    </div>
+                    <div class="faq__answer">
+                        Dathway can help you start your career today with a personalized road map drawn directly from your social and psychometric data.
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+          <div class="footer__top">
+            <div>
+              <img src="{% static 'images/logo.png'%}" alt="">
+            </div>
+            <div class="footer-left footer-item">
+              <div class="contact-content" id="join-waitlist">
+                <h3 class="contact-title">For enquiries!</h3>
+                <form action="" class="contact-form">
+                  <div class="contact-form-div">
+                    <label for="" class="contact-form-tag">Names</label>
+                    <input
+                      type="text"
+                      placeholder="Insert your name"
+                      class="contact-form-input"
+                    />
+                  </div>
+                  <div class="contact-form-div">
+                    <label for="" class="contact-form-tag">E-mail</label>
+                    <input
+                      type="email"
+                      placeholder="Insert your email"
+                      class="contact-form-input"
+                    />
+                  </div>
+                  <div class="contact-form-div">
+                    <label for="" class="contact-form-tag">Message</label>
+                    <input
+                      type="text"
+                      placeholder="What do you want to enquire about? "
+                      class="contact-form-input"
+                    />
+                  </div>
+                  <button class="contact-button">Send Message</button>
+                </form>
+              </div>
+            </div>
+            <div class="footer-right footer-item">
+             
+              <div class="footer__sections">
+                <div class="footer__section">
+                  <div class="footer__section-header">
+                      <h6>Browse</h6>
+                  </div>
+                  <div class="footer__section-links">
+                   <a href="#how-dath-works__section">How Dath Works</a>
+                   <a href="#why-dathway__section">Why Dathway</a>
+                   <a href="#faq__section">FAQ</a>
+                     
+                  </div>
+                </div>
+        
+                <div class="footer__section">
+                  <div class="footer__section-header">
+                      <h6>Company</h6>
+                  </div>
+                  <div class="footer__section-links">
+                      <a href="/company#about-us">
+                          About Us
+                      </a>
+                      <a href="/company#our-team">
+                          Our Team
+                      </a>
+                      <a href="/company#our-careers">
+                          Our Careers
+                      </a>
+                      <a href="/company#our-updates">
+                            Our Updates
+                      </a>
+                      <a href="/company#contact-us">
+                        Contact Us
+                      </a>
+                  </div>
+                </div>
+                <div class="footer__section">
+                    <div class="footer__section-header">
+                        <h6>Learn</h6>
+                    </div>
+                    <div class="footer__section-links">
+                        <a href="/learn#whats-trending">
+                            What's Trending
+                        </a>
+                        <a href="/learn#events">
+                            Events
+                        </a>
+                
+                        <a href="/learn#research">
+                          Research & Analysis
+                        </a>
+                    </div>
+                  </div>
+               
+              </div>
+            </div>  
+          </div>
+          <div class="footer__bottom">
+            <div class="footer__copyright">
+                &#169; Dathway 2023. All rights reserved.
+            </div>
+            <div class="footer__social-media">
+                <i class='bx bxl-facebook-circle' ></i>
+                <i class='bx bxl-twitter' ></i>
+                <i class='bx bxl-instagram-alt' ></i>
+                <i class='bx bxl-linkedin-square' ></i>
+                <i class='bx bxl-gmail' ></i>
+            </div>
+        </div>
+        </div>
+       
+    </footer>
+
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        // Define the observer options
+        var options = {
+          root: null, // use the viewport as the root
+          rootMargin: '0px',
+          threshold: 0.5 // trigger when 50% of the element is visible
+        };
+    
+        // Create a new Intersection Observer
+        var observer = new IntersectionObserver(handleIntersection, options);
+    
+        // Select all sections with the animated class
+        var animatedSections = document.querySelectorAll('div');
+    
+        // Loop through each animated section and observe it
+        animatedSections.forEach(function(section) {
+          observer.observe(section);
+        });
+    
+        // Function to handle intersection changes
+        function handleIntersection(entries, observer) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              // Add the animated class if the section is in view
+              entry.target.classList.add('animated-element');
+              // Stop observing the section to avoid unnecessary callbacks
+              observer.unobserve(entry.target);
+            }
+          });
+        }
+    
+        // Function to scroll to a specific section
+        function scrollToSection(sectionId) {
+          var section = document.getElementById(sectionId);
+          if (section) {
+            section.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }
+    
+        // Show/hide scroll-to-section button based on scroll position
+        window.addEventListener('scroll', function() {
+          var scrollToSectionBtn = document.getElementById('scrollToSectionBtn');
+          if (window.scrollY > 500) {
+            scrollToSectionBtn.style.display = 'block';
+          } else {
+            scrollToSectionBtn.style.display = 'none';
+          }
+        });
+      </script>
+    <script>
+        const containerItems = document.querySelectorAll('.about-dathway-container__item');
+        let currentIndex = 0;
+        const intervalDuration = 5000; // 5000 milliseconds = 5 seconds
+
+        const goToSlide = (index) => {
+            containerItems[currentIndex].classList.remove('active');
+            currentIndex = index;
+            containerItems[currentIndex].classList.add('active');
+
+            containerItems.forEach((item, idx) => {
+                if (idx === currentIndex) {
+                    item.style.zIndex = 2;
+                } else {
+                    item.style.zIndex = 1;
+                }
+            });
+        };
+
+        const startAutoSlide = () => {
+            setInterval(() => {
+                const nextIndex = (currentIndex + 1) % containerItems.length;
+                goToSlide(nextIndex);
+            }, intervalDuration);
+        };
+
+        startAutoSlide();
+
+
+    </script>
+    <script>
+        const faqItems = document.querySelectorAll('.faq__container-item');
+
+        faqItems.forEach((item) => {
+            item.addEventListener('click', () => {
+                faqItems.forEach((otherItem) => {
+                    if (item !== otherItem) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                item.classList.toggle('active');
+            });
+        });
+
+    </script>
+    <script>
+        const toggleButton = document.querySelector(".menu__icon");
+        const menuBar = document.querySelector(".small__screen-menu");
+        const removeMenuBar = document.querySelector(".small__screen-menu-icon");
+  
+        toggleButton.addEventListener("click", function () {
+          if (menuBar.classList.contains("active")) {
+            menuBar.classList.remove("active");
+          } else {
+            menuBar.classList.add("active");
+          }
+        });
+        removeMenuBar.addEventListener("click", function () {
+          menuBar.classList.remove("active");
+        });
+  
+    </script>
+    <script>
+		// Check local storage
+		let localS = localStorage.getItem('theme'),
+			themeToSet = localS
+
+		// If local storage is not set, we check the OS preference
+		if (!localS) {
+			themeToSet = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+		}
+
+		// Set the correct theme
+		document.documentElement.setAttribute('data-theme', themeToSet)
+	</script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeBtn = document.querySelector(".theme-icons")
+            const sunButton = document.querySelector(".bx-sun");
+            const moonButton = document.querySelector(".bx-moon");
+            const heroSection = document.getElementById('heroSection');
+            const dataTheme = document.documentElement.getAttribute('data-theme');
+
+            if (dataTheme === 'dark') {
+                heroSection.style.backgroundImage = 'url({% static "images/dark-bg.png" %})';
+            } else {
+                heroSection.style.backgroundImage = 'url({% static "images/light-bg.png" %})';
+            }
+
+
+            // Theme switcher function
+            const switchTheme = () => {
+                // Get root element and data-theme value
+                const rootElem = document.documentElement
+                let dataTheme = rootElem.getAttribute('data-theme'),
+                    newTheme
+
+                newTheme = (dataTheme === 'light') ? 'dark' : 'light'
+
+                // Set the new HTML attribute
+                rootElem.setAttribute('data-theme', newTheme)
+                
+
+                // Set the new local storage item
+                localStorage.setItem("theme", newTheme)
+            }
+            
+    
+            themeBtn.addEventListener("click", function () {
+            if (sunButton.classList.contains("active")) {
+                sunButton.classList.remove("active");
+                moonButton.classList.add("active");
+                heroSection.style.backgroundImage = 'url({% static "images/dark-bg.png" %})';
+                switchTheme()
+            } else {
+                moonButton.classList.remove("active");
+                sunButton.classList.add("active");
+                heroSection.style.backgroundImage = 'url({% static "images/light-bg.png" %})';
+                switchTheme()
+            }
+            });
+        });
+        
+  
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const body = document.body;
+            const themeToggleBtn = document.getElementById('theme-toggle-button');
+
+            // Function to toggle theme
+            function toggleTheme() {
+                console.log("clicked")
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.setAttribute('data-theme', 'light');
+                    heroSection.style.backgroundImage = 'url({% static "images/light-bg.png" %})';
+
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    heroSection.style.backgroundImage = 'url({% static "images/dark-bg.png" %})';
+                }
+
+            }
+
+            // Toggle theme on button click
+            themeToggleBtn.addEventListener('click', toggleTheme);
+        });
+
+    </script>
+          <script>
+            const passwordInputs = document.querySelectorAll(".login__password");
+            const showPasswordBtns = document.querySelectorAll(".show__password");
+    
+            showPasswordBtns.forEach((showPasswordBtn, index) => {
+                showPasswordBtn.addEventListener("click", () => {
+                    if (passwordInputs[index].type === "password") {
+                        passwordInputs[index].type = "text";
+                        showPasswordBtn.classList.add("active");
+                    } else {
+                        passwordInputs[index].type = "password";
+                        showPasswordBtn.classList.remove("active");
+                    }
+                });
+            });
+    
+    
+    
+          </script>
+    
+          <script>
+              // Get the authentication container and its child elements
+              const closeBtn = document.getElementById('close-authentication')
+              const authenticationSection = document.querySelector(".authentication__section");
+              const loginContainer = authenticationSection.querySelector(".login__container-body");
+              const signupContainer = authenticationSection.querySelector(".signup__container-body");
+              const loginHeader = authenticationSection.querySelector(".authentication__header-item:first-child");
+              const signupHeader = authenticationSection.querySelector(".authentication__header-item:last-child");
+    
+    
+              // Function to show the authentication container
+              function showAuthenticationContainer() {
+                  authenticationSection.style.display = "flex";
+              }
+    
+              // Function to hide the authentication container
+              function hideAuthenticationContainer() {
+                authenticationSection.style.display = "none";
+              history.replaceState(null, '', window.location.pathname + window.location.search);
+              }
+    
+              // Function to show the login container
+              function showLoginContainer() {
+                  showAuthenticationContainer();
+                  loginContainer.style.display = "block";
+                  signupContainer.style.display = "none";
+                  loginHeader.classList.add("active");
+                  signupHeader.classList.remove("active");
+              }
+    
+              // Function to show the signup container
+              function showSignupContainer() {
+                  showAuthenticationContainer();
+                  loginContainer.style.display = "none";
+                  signupContainer.style.display = "block";
+                  loginHeader.classList.remove("active");
+                  signupHeader.classList.add("active");
+              }
+    
+              // Hide the authentication container initially
+              hideAuthenticationContainer();
+    
+              // Initial page load based on the URL hash
+              if (window.location.hash === "#login") {
+                  showLoginContainer();
+              } else if (window.location.hash === "#signup") {
+                  showSignupContainer();
+              }
+    
+              // Listen for changes in the URL hash (e.g., when the user clicks a link)
+              window.addEventListener("hashchange", () => {
+                  if (window.location.hash === "#login") {
+                      showLoginContainer();
+                  } else if (window.location.hash === "#signup") {
+                      showSignupContainer();
+                  }
+              });
+    
+              
+    
+    
+              closeBtn.addEventListener("click", function () {
+                hideAuthenticationContainer();
+              });
+          </script>
+    
+          <script>
+            const emailLogin = document.getElementById('login__email');
+            const passwordLogin = document.getElementById('login__password');
+            const loginBtn = document.getElementById('login__btn');
+            const cLogErrorMessage = document.getElementById('login-error__message');
+    
+            // To disable the button
+            
+    
+            loginBtn.addEventListener("click", function () {
+                const emailValue = emailLogin.value;
+                const passwordValue = passwordLogin.value;
+    
+                $.ajax({
+                    url: 'login',
+                    method: 'POST',
+                    data: {
+                        email: emailValue,
+                        password: passwordValue,
+                    },
+                    success: function (response) {
+                        if (response.message === 'success') {
+                            // Redirect or perform other actions for a successful login
+                            console.log("Logged in successfully");
+                            window.location.href = "/dashboard";
+                            
+                        } else {
+                            
+                            console.log("Unexpected response:", response);
+                            cLogErrorMessage.style.display = 'block';
+                            cLogErrorMessage.textContent = 'An error occured, please try again.';
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        if (xhr.status === 400) {
+                            cLogErrorMessage.style.display = 'block';
+                            cLogErrorMessage.textContent = xhr.responseJSON.error;
+                            console.log("Invalid login credentials");
+                        } else {
+    
+                            cLogErrorMessage.style.display = 'block';
+                            cLogErrorMessage.textContent = 'An error occured, please try again.';
+                            console.log("Error:", status, error);
+                        }
+                    }
+                });
+            });
+                function areLoginFieldsEmpty() {
+                    const emailValue = emailLogin.value.trim(); // Trim to remove leading/trailing spaces
+                    const passwordValue = passwordLogin.value.trim();
+                    return emailValue === '' || passwordValue === '';
+                    
+                }
+    
+                // Function to enable or disable the login button based on field values
+                function toggleLoginButton() {
+                if (areLoginFieldsEmpty()) {
+                  loginBtn.classList.add('disabled');
+                }
+                else {
+                  loginBtn.classList.remove('disabled');
+                }
+                    
+                }
+    
+                // Add event listeners to the email and password fields
+                emailLogin.addEventListener('input', toggleLoginButton);
+                passwordLogin.addEventListener('input', toggleLoginButton);
+    
+                // Initial check to disable the button if fields are empty on page load
+                toggleLoginButton();
+    
+          </script>
+    
+          <script>
+            const emailSignup = document.getElementById('signup__email');
+            const firstName = document.getElementById('signup__firstname');
+            const lastName = document.getElementById('signup__lastname');
+            const userName = document.getElementById('signup__username');
+            
+            const passwordSignup = document.getElementById('signup__password');
+            const confirmPasswordSignup = document.getElementById('signup__confirm-password');
+            const signupBtn = document.getElementById('signup__btn');
+            const cSignErrorMessage = document.getElementById('signup-error__message');
+            const marketCheckbox = document.getElementById('marketing__checkbox');
+    
+            signupBtn.addEventListener("click", function () {
+                const emailSignupValue = emailSignup.value;
+                const firstNameValue = firstName.value;
+                const lastNameValue =lastName.value;
+                const userNameValue = userName.value;
+                const passwordSignupValue = passwordSignup.value;
+                const confirmPasswordSignupValue = confirmPasswordSignup.value;
+    
+                if (passwordSignupValue !== confirmPasswordSignupValue ) {
+                  cSignErrorMessage.style.display = 'block';
+                  cSignErrorMessage.textContent = "Passwords do not match";
+                  console.log("Passwords do not match")
+                } else if(passwordSignupValue == '' ||  confirmPasswordSignupValue == '') {
+                  cSignErrorMessage.style.display = 'block';
+                  cSignErrorMessage.textContent = "Please Input Passwords";
+                  console.log("Please Input Passwords")
+                } else {
+                  $.ajax({
+                    url: 'signup',
+                    method: 'POST',
+                    data: { 
+                      email: emailSignupValue, 
+                      password: passwordSignupValue,
+                      first_name: firstNameValue,
+                      last_name: lastNameValue,
+                      username: userNameValue
+                    },
+                    success: function (response) {
+                        if (response.message === 'success') {
+                            // Redirect or perform other actions for a successful login
+                            console.log("Signed Up successfully");
+                            window.location.href = "/";
+                            
+                        } else {
+                            
+                            console.log("Unexpected response:", response);
+                            cSignErrorMessage.style.display = 'block';
+                            cSignErrorMessage.textContent = 'An error occured, please try again.';
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        if (xhr.status === 400) {
+                            cSignErrorMessage.style.display = 'block';
+                            cSignErrorMessage.textContent = xhr.responseJSON.error;
+                            console.log("User already exists.");
+                        } else {
+    
+                            cSignErrorMessage.style.display = 'block';
+                            cSignErrorMessage.textContent = 'An error occured, please try again.';
+                            console.log("Error:", status, error);
+                        }
+                    }
+                  });
+                }
+                
+              });
+    
+              function areSignupFieldsEmpty() {
+                  const emailSignupValue = emailSignup.value.trim();
+                  const passwordSignupValue = passwordSignup.value.trim();
+                  const confirmPasswordSignupValue = confirmPasswordSignup.value.trim();
+    
+                  return !marketCheckbox.checked || emailSignupValue === '' || passwordSignupValue === '' || confirmPasswordSignupValue === '' ;
+              }
+    
+    
+                // Function to enable or disable the login button based on field values
+                function toggleSignupButton() {
+                if (areSignupFieldsEmpty()) {
+                  signupBtn.classList.add('disabled');
+                }
+                else {
+                  signupBtn.classList.remove('disabled');
+                }
+                    
+                }
+    
+                // Add event listeners to the email and password fields
+                emailSignup.addEventListener('input', toggleSignupButton);
+                passwordSignup.addEventListener('input', toggleSignupButton);
+                confirmPasswordSignup.addEventListener('input', toggleSignupButton);
+                marketCheckbox.addEventListener('click', toggleSignupButton);
+    
+                // Initial check to disable the button if fields are empty on page load
+                toggleSignupButton();
+          </script>
+    
+</body>
+</html>
+{% endblock content %}
