@@ -14,7 +14,7 @@ from openai import OpenAI
 import os
 import re
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", "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"))
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", ""))
 
 def extract_tech_skills(bot_response):
     # Try to match the first pattern with compatibility ratings in parentheses
