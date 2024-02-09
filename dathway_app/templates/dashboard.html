@@ -3,7 +3,6 @@
 
 {% block menu %}
 <div class="content__container menu__block">
-   
     <div class="content__container-body">
         <div class="content__container-body-left">
             <div class="chats-detail_section">
@@ -13,8 +12,9 @@
                             <div class="chats-detail__body-header">
                                 <h1>Initiate a Conversation with Dathway</h1>
                             </div>
-                            <div class="chats-detail__suggestions">
-                                <!-- Suggestions for Starting or Advancing in a Tech Career -->
+                            {% if not messages %}
+                            <div class="chats-detail__suggestions" id="chats-detail__suggestions">
+                               
                                 <div class="chats-detail__suggestions-item">
                                     <p class="chats-detail__suggestions-item-title">
                                         I have a tech skill but want to advance. Can you guide me?
@@ -44,15 +44,36 @@
                                     <p class="chats-detail__suggestions-item-title">
                                         What resources can I use to enhance my existing tech skills?
                                     </p>
-                                </div>
-               
-                              
+                                </div>  
+                            </div> 
+                            {% endif %}
+                            <div class="messages-detail__body" id="messages-detail__body">
+                                {% for chat in messages %}
+                                    <div class="messages-detail__body-item {% if chat.sender == profile%} user_message {% endif %}" >
+                                       
+                                        <div class="messages-detail__body-item-container">
+                                            {% if chat.sender != profile%}
+                                            <div class="">
+                                                <i class='bx bxs-bot'></i>
+                                            </div>
+                                            {% endif %}
+                                            <div class="messages-detail__body-item-text">
+                                                <p>{{chat.message}}</p>
+                                            </div>
+                                        {% if chat.sender == profile%}
+                                        <div class="">
+                                            <i class='bx bxs-user-circle' ></i>
+                                        </div>
+                                        {% endif%}
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                         
                     </div>
                     <div class="chats-detail__type">
-                        <input id="chat_text" type="text" placeholder="Start a new chat" disabled>
+                        <input id="chat_text" type="text" placeholder="Start a new chat">
                         <button id="send_chat"><i class='bx bx-send' ></i></button>
                     </div>
                 </div>
@@ -61,9 +82,9 @@
         <div class="content__container-body-right">
             <div class="content__container-body-right-skills">
                 <div class="content__container-body-right-skills-header">
-                    <h1>
-                        Skills
-                    </h1>
+                    <h3>
+                        Suggested Skills
+                    </h3>
                 </div>  
 
                 <div class="content__container-body-right-skills-body">
@@ -71,12 +92,10 @@
                         No skill yet, start a conversation. 
                     </p>
                 </div>
-               
-
             </div>
             <div class="content__container-body-right-courses">
                 <div class="content__container-body-right-courses-header">
-                    <h1>Courses</h1>
+                    <h3>Available Courses</h3>
                 </div>  
     
                 <div class="content__container-body-right-course-body">
@@ -89,6 +108,119 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+<script>
+    $(document).ready(function () {
+    scrollToBottom();
+    const textMessage = document.getElementById('chat_text');
+    const sendMessageBtn = document.getElementById('send_chat');
+    const chatBody = document.querySelector('.messages-detail__body');
+    const chatSuggestions = document.getElementById('chats-detail__suggestions');
+
+    function getCookie(name) {
+        const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+        return cookieValue ? cookieValue.pop() : '';
+    }
+
+    const csrfToken = getCookie('csrftoken');
+
+    sendMessageBtn.addEventListener("click", function () {
+        console.log("clicked");
+        const textMessageValue = textMessage.value;
+        console.log(textMessageValue)
+        if (textMessageValue.trim() !== '') {
+            chatBody.appendChild(messageEl(textMessageValue, "user_message"))
+            textMessage.value = "";
+            if (chatSuggestions)
+                chatSuggestions.style.display = "none";
+            scrollToBottom();
+            // Simulate bot typing
+            appendTypingAnimation();
+            // Send message to the server
+            scrollToBottom();
+
+            $.ajax({
+                url: 'chat',
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken
+                },
+                data: { 'text': textMessageValue },
+                success: function (response) {
+                    // Remove typing animation
+                    console.log('suucess')
+                    if (response.message === 'success') {
+                        // Display bot's response
+                        removeTypingAnimation();
+                        chatBody.appendChild(messageEl(response.bot_response, "bot_message"))
+                        scrollToBottom();
+                    } else {
+                        console.log("Unexpected response:", response);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    setTimeout(() => {
+                        removeTypingAnimation();
+                        console.log("Error:", status, error);
+
+                        chatBody.appendChild(messageEl("Sorry, i'm unavailable now", "bot_message"))
+                    }, 1000)
+                }
+            });
+        }
+    });
+
+    const messageEl = (message, className) => {
+        const chatEl = document.createElement("div");
+        chatEl.classList.add("messages-detail__body-item", `${className}`);
+        let chatContent =
+            className === "user_message"
+                ? `<div class="messages-detail__body-item-container">
+                                        
+                                        
+                                        <div class="messages-detail__body-item-text">
+                                                <p>${message}</p> 
+                                        </div>
+                                        <div class="">
+                                            <i class='bx bxs-user-circle' ></i>
+                                        </div>
+                                    </div>`:`<div class="messages-detail__body-item-container">
+                                        <div class="">
+                                        <i class='bx bxs-bot'></i>
+                                    </div>
+                                        <div class="messages-detail__body-item-text">
+                                            <p>${message}</p>
+                                    </div>
+                                    
+                                   
+                                    </div>`;
+            chatEl.innerHTML = chatContent;
+            return chatEl;
+
+    }
+
+    function appendTypingAnimation() {
+            const typingIndicator = document.createElement('div');
+            typingIndicator.className = 'typing-indicator';
+            chatBody.appendChild(typingIndicator);
+    }
+
+    function removeTypingAnimation() {
+        $('.typing-indicator').remove();
+    }
+
+    function scrollToBottom()
+        {
+            const chatBody = document.getElementById('messages-detail__body');
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+});
+
+</script>
 
 {% endblock %}
 

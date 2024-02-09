@@ -112,8 +112,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #For Development
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'dathway_app/static'),]
-STATIC_ROOT = os.path.join(BASE_DIR, 'dathway_proj/staticfiles')
+#STATICFILES_DIRS = [os.path.join(BASE_DIR, 'dathway_app/static'),]
+#STATIC_ROOT = os.path.join(BASE_DIR, 'dathway_proj/staticfiles')
 
 #For Production
 STATIC_ROOT = 'dathway_app/static'
@@ -127,7 +127,7 @@ MEDIA_URL = '/media/'
 #For Production
 MEDIA_ROOT = 'v1/media'
 
-
+OPENAI_API_KEY = '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'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

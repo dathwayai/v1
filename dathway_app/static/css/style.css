@@ -693,6 +693,128 @@ main {
     height: 50%;
 }
 
+/* Add styles for sent and received messages */
+.chats-body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    
+}
+.sent-message {
+    display: flex;
+    align-items: end;
+}
+
+.received-message {
+    display: flex;
+    flex-direction: column;
+    align-items: start
+}
+.sent-message i, .received-message i {
+    font-size: large;
+}
+.sent-message p{
+    background-color:var(--secondary-container-color);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    max-width: 50%;
+    margin-right: 6px;
+
+}
+
+.received-message p{
+    background-color: var(--container-color);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    max-width: 50%;
+    margin-left: 6px;
+   
+}
+
+.messages-detail__body {
+   
+    padding: 2rem 1rem;
+    padding-bottom: 6rem;
+    height: 50vh;
+    overflow: auto;
+   
+}
+
+.messages-detail__body-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 0.5rem;
+}
+
+.messages-detail__body-item i {
+    font-size: x-large;
+    color: var(--secondary-container-color);
+}
+.messages-detail__body-item-container {
+    display: flex;
+    align-items: center;
+}
+
+.messages-detail__body-item.user_message {
+    align-items: end;
+    
+}
+
+.messages-detail__body-item.user_message .messages-detail__body-item-text{
+    align-items: end;
+    background-color: var(--secondary-container-color);
+    max-width: 300px;
+    color: var(--white);
+    margin-right: 6px;
+}
+
+.messages-detail__body-item-text {
+    padding: 0.2rem 1rem;
+    background-color: var(--container-color);
+    border-radius: 15px;
+    margin: 2px 0;
+    max-width: 300px;
+    color: var(--text-color);
+    margin-left: 6px;
+    text-align: left;
+    
+}
+
+.messages-detail__body-item-text img {
+    width: 100%;
+}
+
+.messages-detail__body-item-time {
+    font-size: small;
+    color: var(--subtitle-color);
+}
+
+/* Add styles for typing animation */
+.typing-indicator {
+   align-items: self-start;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    background-color:var(--secondary-container-color);
+    border-radius: 50%;
+    animation: typing-animation 1s infinite;
+}
+
+@keyframes typing-animation {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.5);
+    }
+}
+
+
 /* ================================================= */
 /* Hero Section styles */
 /* ================================================= */
